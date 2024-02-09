@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EyewitnessVisualizerApp</string>
+    <string name="facebook_app_id">1507237793480566</string>
+    <string name="fb_login_protocol_scheme">fb59da41c088e223978c55caec1860bd3e</string>
+    <string name="facebook_client_token">123-THIS-IS-YOUR-CLIENT-TOKEN</string>
+</resources>
