@@ -50,7 +50,7 @@ class LoginScreen extends StatefulWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Login',
                         style: TextStyle(
                           color: Color(0xFFE0E0E6),
@@ -59,7 +59,7 @@ class LoginScreen extends StatefulWidget {
                           height: 8.0,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 80.0,
                       ),
                       defualtTextFeildForm(
