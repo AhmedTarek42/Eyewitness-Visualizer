@@ -1,16 +1,19 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/welcome_screen/welcome_screen.dart';
+import 'package:graduation_project/shared/components/buttons.dart';
 import '../../../shared/components/components.dart';
+import '../../../shared/components/navigators.dart';
+import '../../../shared/components/toast.dart';
 import '../../../shared/network/local/cache_helper.dart';
-import '../register1_screen/Register_Screen.dart';
 import '../register2_screen/register2_screen.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   State<LoginScreen> createState() => _LoginScreen();
 }
@@ -27,7 +30,7 @@ class LoginScreen extends StatefulWidget {
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
           if (state is LoginErrorState) {
-            showToast(text: state.error, state: ToastStates.ERROR);
+            showToast(text: state.error, state: ToastStates.error);
           }
           if(state is LoginSuccessState)
           {
@@ -36,7 +39,7 @@ class LoginScreen extends StatefulWidget {
                 value:state.uId ).then((value) {
               navigateAndFinish(
                   context,
-                  WelcomeScreen());
+                  const WelcomeScreen());
             });
           }
         },
@@ -69,11 +72,12 @@ class LoginScreen extends StatefulWidget {
                           if (value!.isEmpty) {
                             return 'please enter your email address';
                           }
+                          return null;
                         },
                         label: 'Email Address',
                         prefixIcon: Icons.email_outlined,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       defualtTextFeildForm(
@@ -96,6 +100,7 @@ class LoginScreen extends StatefulWidget {
                           if (value!.isEmpty) {
                             return 'password is too short';
                           }
+                          return null;
                         },
                         label: 'Password',
                         prefixIcon: Icons.lock_outline,
@@ -107,7 +112,7 @@ class LoginScreen extends StatefulWidget {
                       children: [
                         Theme(
                           data: Theme.of(context).copyWith(
-                            unselectedWidgetColor: Color(0xFF353542),
+                            unselectedWidgetColor: const Color(0xFF353542),
                             checkboxTheme: CheckboxThemeData(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(4.0),// Set the border radius
@@ -122,65 +127,56 @@ class LoginScreen extends StatefulWidget {
                                 isChecked = value ?? false;
                               });
                             },
-                              activeColor: Color(0xFF666680),
+                              activeColor: const Color(0xFF666680),
                           ),
                         ),
-                        Text(
+                        const Text(
                           'Remember me',
                           style: TextStyle(color: Color(0xFF666680)),
                         ),
-                        SizedBox(width: 70.0,),
-                        defualtTextButton(function: () {  }, text: 'Forgot passoword?', textColor: Color(0xFF666680)),
+                        const SizedBox(width: 50.0,),
+                        defualtTextButton(function: () {}, text: 'Forgot password?', textColor: const Color(0xFF666680)),
                       ],
                     ),
                   ),
-                      SizedBox(
+                      const SizedBox(
                         height: 24.0,
                       ),
                       ConditionalBuilder(
                         condition: state is! LoginLoadingState,
-                        builder: (context) => defualtButton(
-                          onPress: () {
-                            if (formKey.currentState!.validate()) {
-                              LoginCubit.get(context).userLogin(
-                                  email: emailController.text,
-                                  password: passwordController.text);
-                            }
-                          },
-                          backgroundColor: 0xFFFF7F37,
-                          text: 'Sign In',
-                          isUpperCase: false,
-                          textColor:Colors.white,
-                          isImage: false,
-                          boxShadowColor: 0x7FFF7966,
-                          borderSideOpacity: 0.30000001192092896
+                        builder: (context) => PrimaryButton(
+                            buttonTitle: 'Sign In',
+                            onPressed: () {
+                              if (formKey.currentState!.validate())
+                              {
+                                LoginCubit.get(context).userLogin(
+                                    email: emailController.text,
+                                    password: passwordController.text);
+                              }
+                            },
+
                         ),
                         fallback: (context) =>
                             const Center(child: CircularProgressIndicator()),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 150.0,
                       ),
-
                       Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            const Text(
                               'You don\'t have an account yet?',
                               style: TextStyle(color: Colors.white),
                             ),
-                            SizedBox(height: 20.0,),
-                            defualtButton(
-                                isImage: false,
-                                onPress: () {
-                                  navigateTo(context, RegisterScreen2());
-                                },
-                                textColor: Colors.white,
-                                text: 'Sign Up',
-                                isUpperCase: false,
-                                backgroundColor: 0x26FFFFFF
-                            ),
+                            const SizedBox(height: 20.0,),
+                           SecondaryButton(
+                               buttonTitle: 'Sign Up',
+                               onPressed: () {
+                                 navigateTo(context, RegisterScreen2());
+                               },
+                           )
                           ],
                         ),
 

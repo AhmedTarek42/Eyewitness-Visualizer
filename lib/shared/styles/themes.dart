@@ -9,11 +9,11 @@ ThemeData darkTheme=ThemeData(
   primarySwatch: defaultColor,
   appBarTheme: AppBarTheme(
     titleSpacing: 20.0,
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: Colors.white,
       size: 30.0,
     ),
-    titleTextStyle: TextStyle(
+    titleTextStyle: const TextStyle(
       color:Colors.white,
       fontSize: 20.0,
       fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ ThemeData darkTheme=ThemeData(
     backgroundColor: HexColor('333739'),
 
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodyLarge:TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,
@@ -48,7 +48,7 @@ ThemeData darkTheme=ThemeData(
 ThemeData lightTheme=ThemeData(
   primarySwatch: defaultColor,
   scaffoldBackgroundColor: Colors.white,
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     titleSpacing: 20.0,
     iconTheme: IconThemeData(
       color: Colors.black,
@@ -69,14 +69,14 @@ ThemeData lightTheme=ThemeData(
     elevation: 0.0,
 
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     type: BottomNavigationBarType.fixed,
     selectedItemColor: defaultColor,
     elevation: 30.0,
     backgroundColor: Colors.white,
 
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodyLarge:TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,

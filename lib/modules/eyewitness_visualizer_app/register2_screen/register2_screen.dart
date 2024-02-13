@@ -1,8 +1,10 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_project/modules/eyewitness_visualizer_app/welcome_screen/welcome_screen.dart';
+import 'package:graduation_project/shared/components/buttons.dart';
 import '../../../shared/components/components.dart';
+import '../../../shared/components/navigators.dart';
+import '../../../shared/components/strengt_indicator.dart';
 import '../login_screen/login_screen.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
@@ -36,7 +38,7 @@ class RegisterScreen2 extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Register',
                           textAlign: TextAlign.start,
                           style: TextStyle(
@@ -46,7 +48,7 @@ class RegisterScreen2 extends StatelessWidget {
                             height: 8.0,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 58.0,
                         ),
 
@@ -61,7 +63,7 @@ class RegisterScreen2 extends StatelessWidget {
                           label: 'Full Name',
                           prefixIcon: Icons.person,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15.0,
                         ),
 
@@ -77,7 +79,7 @@ class RegisterScreen2 extends StatelessWidget {
                           prefixIcon: Icons.email_outlined,
                         ),
 
-                        SizedBox(
+                        const SizedBox(
                           height: 15.0,
                         ),
 
@@ -150,25 +152,19 @@ class RegisterScreen2 extends StatelessWidget {
                         ),
                         ConditionalBuilder(
                           condition: state is! RegisterLoadingState2,
-                          builder: (context) => defualtButton(
-                            isImage: false,
-                            onPress: () {
-                              if (formKey.currentState!.validate()) {
-                                RegisterCubit2.get(context).userRegister(
+                          builder: (context) =>
+                              PrimaryButton(buttonTitle: 'Get started, it’s free!',
+                                  onPressed: () {
+                                if (formKey.currentState!.validate())
+                                {  RegisterCubit2.get(context).userRegister(
                                     name: fullNameController.text,
                                     email: emailController.text,
                                     password: passwordController.text,
-                                    phone: phoneController.text
-                                );
-                              }
-                            },
-                              textColor: Colors.white,
-                              text: 'Get started, it’s free!',
-                              isUpperCase: false,
-                              backgroundColor: 0xFFFF7F37,
-                              boxShadowColor: 0x7FFF7966,
-                              borderSideOpacity: 0.30000001192092896
-                          ),
+                                    phone: phoneController.text);
+                                }
+                                  },
+
+                              ),
                           fallback: (context) =>
                               Center(child: CircularProgressIndicator()),
                         ),
@@ -180,16 +176,13 @@ class RegisterScreen2 extends StatelessWidget {
                               color: Colors.white),
                         ),
                         SizedBox(height: 20.0,),
-                        defualtButton(
-                            isImage: false,
-                            onPress: () {
-                              navigateTo(context, LoginScreen());
+                        SecondaryButton(
+                            buttonTitle: 'Sign In',
+                            onPressed: () {
+                              navigateTo(context, const LoginScreen());
                             },
-                            textColor: Colors.white,
-                            text: 'Sign In',
-                            isUpperCase: false,
-                            backgroundColor: 0x26FFFFFF
-                        ),
+
+                        )
                       ],
                     ),
                   ),

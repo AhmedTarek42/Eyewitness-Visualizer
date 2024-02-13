@@ -3,9 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/register2_screen/cubit/states.dart';
-import 'package:graduation_project/shared/components/components.dart';
 
 import '../../../../models/user_model/user_model.dart';
+import '../../../../shared/components/strengt_indicator.dart';
 
 
 

@@ -1,9 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../shared/components/components.dart';
+import 'package:graduation_project/shared/components/buttons.dart';
+import '../../../shared/components/navigators.dart';
+import '../../../shared/components/sign_facebook.dart';
 import '../register2_screen/register2_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,35 +15,36 @@ class RegisterScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 458.0,),
-                defualtButton(
-                  onPress: () {  },
-                  textColor: const Color(0xFF1C1C23),
-                  text: 'Sign up with Google',
-                  isUpperCase: false,
-                  borderSideOpacity: 0.5,
-                  backgroundColor:0xFFFFFFFF ,
+                PrimaryButton(
+                    buttonTitle: 'Sign up with Google',
+                    onPressed: () {},
+                    background:const Color(0xFFFFFFFF),
+                  borderSideOp: 0.5,
                   boxShadowColor: 0x3FFFFFFF,
+                  textColor: Colors.black,
+                  isImage: true,
                   image: 'assets/images/Google.png',
-                ),
-                SizedBox(
+
+                ) // sign up with google button
+                ,const SizedBox(
                   height: 14.0,),
-                defualtButton(
-                  onPress: () {
-                     signInWithFacebook();
-                  },
-                  textColor: const Color(0xFFFFFFFF),
-                  text: 'Sign up with Facebook',
-                  isUpperCase: false,
-                  borderSideOpacity: 0.30000001192092896,
-                  backgroundColor:0xFF1771E6 ,
+                PrimaryButton(
+                    buttonTitle: 'Sign up with Facebook',
+                    onPressed: () {
+                      signInWithFacebook();
+                    },
+                  background: const Color(0xFF1771E6),
+                  borderSideOp: 0.30000001192092896,
                   boxShadowColor: 0x7F1771E6,
+                  isImage: true,
                   image: 'assets/images/Facebook.png',
-                ),
-                SizedBox(
+
+                ) // sign up with Facebook button
+                ,const SizedBox(
                   height: 40.0,),
-                Text('or',
+                const Text('or',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
@@ -49,21 +53,19 @@ class RegisterScreen extends StatelessWidget {
                     height: 1.0,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40.0,),
-                defualtButton(
-                    onPress: () { navigateTo(context, RegisterScreen2()); },
-                    textColor: const Color(0xFFFFFFFF),
-                    text: 'Sign up with E-mail',
-                    isUpperCase: false,
-                    borderSideOpacity: 0.15000000596046448,
-                    backgroundColor:0x1AFFFFFF ,
-                    boxShadowColor: 0,
-                    isImage: false
-                ),
-                SizedBox(
+                SecondaryButton(
+                    buttonTitle: 'Sign up with E-mail',
+                  textColor: const Color(0xFFFFFFFF),
+                    onPressed: (){
+                      navigateTo(context, RegisterScreen2());
+                      },
+
+                ), // sing up with E-mail button
+                const SizedBox(
                   height: 24.0,),
-                SizedBox(
+                const SizedBox(
                   width: 326.0,
                   child: Text(
                     'By registering, you agree to our Terms of Use. Learn how we collect, use and share your data.',
@@ -77,14 +79,9 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
               ],
             ),
           ),
     );
-
-
-
   }
-
 }

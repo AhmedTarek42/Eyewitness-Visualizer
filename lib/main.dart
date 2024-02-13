@@ -8,7 +8,7 @@ import 'package:graduation_project/shared/network/local/cache_helper.dart';
 import 'package:graduation_project/shared/network/remote/dio_helper.dart';
 import 'firebase_options.dart';
 import 'modules/eyewitness_visualizer_app/login_screen/login_screen.dart';
-import 'modules/eyewitness_visualizer_app/register1_screen/Register_Screen.dart';
+import 'modules/eyewitness_visualizer_app/register1_screen/register_screen.dart';
 import 'modules/eyewitness_visualizer_app/register2_screen/register2_screen.dart';
 
 void main()async {
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: Color(0xFF1C1C23),),
+      theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF1C1C23),),
       home: WelcomeScreen(),
 
     );

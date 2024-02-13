@@ -1,10 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../shared/components/components.dart';
+import '../../../shared/components/buttons.dart';
+import '../../../shared/components/navigators.dart';
 import '../login_screen/login_screen.dart';
-import '../register1_screen/Register_Screen.dart';
+import '../register1_screen/register_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class WelcomeScreen extends StatelessWidget {
       Column(
         children: [
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               child: Stack(
     children: [
@@ -58,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
     ),
     ),
     ),
-      Positioned(
+      const Positioned(
         top:550.0 ,
         left: 30.0,
         width: 326.0,
@@ -80,28 +82,23 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          defualtButton(
-            isImage: false,
-              onPress: () {
-              navigateTo(context, RegisterScreen());
-              },
-              backgroundColor: 0xFFFF7F37,
-              textColor: Colors.white,
-              text: 'Get started',
-              isUpperCase: false,
-              boxShadowColor: 0x7FFF7966, borderSideOpacity: 0.30000001192092896),
-          SizedBox(height: 10.0,),
-          defualtButton(
-            isImage: false,
-              onPress: () {
-                navigateTo(context, LoginScreen());
-              },
-              textColor: Colors.white,
-              text: 'I have an account',
-              isUpperCase: false,
-              backgroundColor: 0x26FFFFFF
+          PrimaryButton(
+            buttonTitle: 'Get started',
+            onPressed: ()
+            {
+              navigateTo(context, const RegisterScreen());
+            },
           ),
-          SizedBox(height: 80.0,),
+          const SizedBox(height: 10.0,),
+          SecondaryButton(
+              buttonTitle: 'I have an account',
+              onPressed: () {
+                navigateTo(context, const LoginScreen());
+              },
+            textColor: Colors.white,
+              background: const Color(0x26FFFFFF),
+          ),
+          const SizedBox(height: 80.0,),
         ],
       ),
     );
