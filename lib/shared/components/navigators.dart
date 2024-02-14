@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 Future navigateTo(context, widget) => Navigator.push(
@@ -14,4 +13,4 @@ Future navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
     MaterialPageRoute(
       builder: (context) => widget,
     ),
-        (Route<dynamic> route) => false);
+    (Route<dynamic> route) => false);

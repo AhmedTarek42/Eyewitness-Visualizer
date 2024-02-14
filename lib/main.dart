@@ -7,9 +7,6 @@ import 'package:graduation_project/shared/components/constants.dart';
 import 'package:graduation_project/shared/network/local/cache_helper.dart';
 import 'package:graduation_project/shared/network/remote/dio_helper.dart';
 import 'firebase_options.dart';
-import 'modules/eyewitness_visualizer_app/login_screen/login_screen.dart';
-import 'modules/eyewitness_visualizer_app/register1_screen/register_screen.dart';
-import 'modules/eyewitness_visualizer_app/register2_screen/register2_screen.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,10 +19,12 @@ void main()async {
   //Widget widget;
   uId= await CacheHelper.getData(key: 'uId');
   //(uId==null)?widget=LoginScreen():widget=WelcomeScreen();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
 
 
   @override
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF1C1C23),),
-      home: WelcomeScreen(),
+      home: const WelcomeScreen(),
 
     );
   }
