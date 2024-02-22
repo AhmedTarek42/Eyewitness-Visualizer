@@ -1,0 +1,5 @@
+abstract class EyewitnessVisualizerStates {}
+
+class EyewitnessVisualizerInitialState extends EyewitnessVisualizerStates{}
+
+class EyewitnessVisualizerChangeBottomNavState extends EyewitnessVisualizerStates{}

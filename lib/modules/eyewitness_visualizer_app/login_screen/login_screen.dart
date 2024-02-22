@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/welcome_screen/welcome_screen.dart';
 import 'package:graduation_project/shared/components/buttons.dart';
 import 'package:graduation_project/shared/components/custom_textform_field.dart';
+import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
 import '../../../shared/components/custom_text_button.dart';
 import '../../../shared/components/navigators.dart';
 import '../../../shared/components/toast.dart';
@@ -37,7 +38,7 @@ class _LoginScreen extends State<LoginScreen> {
           }
           if (state is LoginSuccessState) {
             CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-              navigateAndFinish(context, const WelcomeScreen());
+              navigateAndFinish(context, EyewitnessVisualizerLayout());
             });
           }
         },
