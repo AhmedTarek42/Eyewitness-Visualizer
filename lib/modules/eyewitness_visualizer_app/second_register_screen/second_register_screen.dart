@@ -15,6 +15,9 @@ class SecondRegisterScreen extends StatelessWidget {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var phoneController = TextEditingController();
+  final focus = FocusNode();
+  final focus_2 = FocusNode();
+  final focus_3 = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +64,15 @@ class SecondRegisterScreen extends StatelessWidget {
                             }
                             return null;
                           },
+                          onSubmit: (value) {
+                            FocusScope.of(context).requestFocus(focus);
+                          },
                         ), // name field
                         const SizedBox(
                           height: 15.0,
                         ),
                         CustomTextFormField(
+                          focusNode: focus,
                           label: 'E-mail Address',
                           type: TextInputType.emailAddress,
                           prefix: Icons.email_outlined,
@@ -76,11 +83,15 @@ class SecondRegisterScreen extends StatelessWidget {
                             }
                             return null;
                           },
+                          onSubmit: (value) {
+                            FocusScope.of(context).requestFocus(focus_2);
+                          },
                         ), // email field
                         const SizedBox(
                           height: 15.0,
                         ),
                         CustomTextFormField(
+                          focusNode: focus_2,
                           label: 'Phone Number',
                           type: TextInputType.phone,
                           prefix: Icons.phone_android,
@@ -91,11 +102,15 @@ class SecondRegisterScreen extends StatelessWidget {
                             }
                             return null;
                           },
+                          onSubmit: (value) {
+                            FocusScope.of(context).requestFocus(focus_3);
+                          },
                         ), // phone number field
                         const SizedBox(
                           height: 15.0,
                         ),
                         CustomTextFormField(
+                          focusNode: focus_3,
                           label: 'Password',
                           type: TextInputType.visiblePassword,
                           prefix: Icons.lock_outline,

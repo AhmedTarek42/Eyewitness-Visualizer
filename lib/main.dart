@@ -7,6 +7,7 @@ import 'package:graduation_project/shared/components/constants.dart';
 import 'package:graduation_project/shared/network/local/cache_helper.dart';
 import 'package:graduation_project/shared/network/remote/dio_helper.dart';
 import 'firebase_options.dart';
+import 'modules/eyewitness_visualizer_app/app_layout/home_screen.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF1C1C23),),
-      home: const WelcomeScreen(),
+      home: const HomeScreen(),
 
     );
   }
