@@ -2,10 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/cubit/states.dart';
-import '../History/history_screen.dart';
-import '../Home/home_screen.dart';
-import '../Settings/settings_screen.dart';
-import '../Statistics/statistics_screen.dart';
+
+import '../history_screen/history_screen.dart';
+import '../home_screen/home_screen.dart';
+import '../settings_screen/settings_screen.dart';
+import '../statistics_screen/statistics_screen.dart';
 
 class EyewitnessVisualizerCubit extends Cubit<EyewitnessVisualizerStates>{
   EyewitnessVisualizerCubit() : super(EyewitnessVisualizerInitialState());
@@ -15,7 +16,7 @@ class EyewitnessVisualizerCubit extends Cubit<EyewitnessVisualizerStates>{
   int currentIndex = 0;
 
   List<Widget> bottomScreens = [
-    HomeScreen(),
+    const HomeScreen(),
     StatisticsScreen(),
     HistoryScreen(),
     SettingsScreen(),

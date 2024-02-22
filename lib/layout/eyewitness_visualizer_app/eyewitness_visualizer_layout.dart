@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../modules/eyewitness_visualizer_app/Search/search_screen.dart';
+
 import '../../modules/eyewitness_visualizer_app/cubit/cubit.dart';
 import '../../modules/eyewitness_visualizer_app/cubit/states.dart';
+import '../../modules/eyewitness_visualizer_app/search_screen/search_screen.dart';
 import '../../shared/components/navigators.dart';
 
 
 class EyewitnessVisualizerLayout extends StatelessWidget {
+  const EyewitnessVisualizerLayout({super.key});
+
   @override
   Widget build(BuildContext context) {
     var cubit = EyewitnessVisualizerCubit.get(context);
@@ -23,7 +26,7 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                   margin: const EdgeInsets.only(top: 22),
                   height:57,
                   width: 57,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     boxShadow: [
                       BoxShadow(
                         color: Color(0x7FFF7966),
@@ -34,13 +37,13 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                     ]
                   ),
                   child: FloatingActionButton(
-                    backgroundColor: Color(0xffff7966),
+                    backgroundColor: const Color(0xffff7966),
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),
                     onPressed: () { navigateTo(context, SearchScreen()); },
-                    child: Icon(
+                    child: const Icon(
                       Icons.search,
                       color: Colors.white,
                     ),
@@ -51,10 +54,10 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: BottomAppBar(
                   height: 80,
-                  color: Color(0xFF353542),
-                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  color: const Color(0xFF353542),
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
                   notchMargin: 7,
-                  shape: CircularNotchedRectangle(),
+                  shape: const CircularNotchedRectangle(),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -77,7 +80,7 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                   onPressed: () {
                     cubit.changeBottom(1);
                   },),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   IconButton(
                   icon: const Icon(
                     Icons.history,
