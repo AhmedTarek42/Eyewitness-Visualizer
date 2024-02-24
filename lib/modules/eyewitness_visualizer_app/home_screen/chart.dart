@@ -24,7 +24,9 @@ class HomeChart extends StatelessWidget {
 
 List<RadialData> getData() {
   final List<RadialData> chartData = [
-    RadialData('Category 1', 70, const Color(0xFFFF7966)),
+    RadialData('Category 1', 0, const Color(0xFFFF7966)),
+    RadialData('Category 1', 210, const Color(0xFFFF7966)),
+    RadialData('Total Images', 70, const Color(0xFFFF7966)),
   ];
   return chartData;
 }
