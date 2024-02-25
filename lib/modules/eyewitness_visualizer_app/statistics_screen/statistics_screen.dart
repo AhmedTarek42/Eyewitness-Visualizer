@@ -6,7 +6,7 @@ class StatisticsScreen extends StatelessWidget{
   const StatisticsScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    //final ValueNotifier<double> _valueNotifier = ValueNotifier(78);
+    final ValueNotifier<double> _valueNotifier = ValueNotifier(78);
     return Scaffold(
       body: Center(
         child: Column(
@@ -27,19 +27,51 @@ class StatisticsScreen extends StatelessWidget{
             ),
             const SizedBox(
               height: 50.0 ,),
-            const CircularSeekBar(
-              width: 210.0,
-              height: 150,
-              barWidth: 8,
-              startAngle: 90,
-              sweepAngle: 180,
-              strokeCap: StrokeCap.round,
-              progress: 78,
-              progressGradientColors: [ Color(0xFF00FAD9),Colors.indigo,Colors.purple,],
-              dashWidth: 50,
-              dashGap: 15,
-              animation: true,
+             Stack(
+               alignment: AlignmentDirectional.center,
+              children: [
+                const CircularSeekBar(
+                width: 210.0,
+                height: 180,
+                barWidth: 8,
+                startAngle: 90,
+                sweepAngle: 180,
+                strokeCap: StrokeCap.round,
+                progress: 78,
+                progressGradientColors: [ Color(0xFF00FAD9),Colors.indigo,Colors.purple,],
+                dashWidth: 50,
+                dashGap: 15,
+                animation: true,
+              ),
+                Container(
+                  padding: EdgeInsetsDirectional.only(top: 55),
+                  width: 210.0,
+                  height: 150,
+                  child: Column(
+                    children: [
+                    Text(
+                      '78%',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                      height: 0.06,),),
+                    SizedBox(height: 20,),
+                    Text(
+                      'Success Rate',
+                      style: TextStyle(
+                        color: Color(0xFFA2A2B5),
+                        fontSize: 12,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                        height: 0.11,
+                        letterSpacing: 0.20,
+                      ),
+                    )
+                  ],),
+                )
 
+              ]
             ),
             Container(
               width: 326,
