@@ -44,10 +44,10 @@ class StatisticsScreen extends StatelessWidget{
                 animation: true,
               ),
                 Container(
-                  padding: EdgeInsetsDirectional.only(top: 55),
+                  padding: const EdgeInsetsDirectional.only(top: 55),
                   width: 210.0,
                   height: 150,
-                  child: Column(
+                  child: const Column(
                     children: [
                     Text(
                       '78%',
@@ -91,11 +91,11 @@ class StatisticsScreen extends StatelessWidget{
               child: Container(
                 alignment: AlignmentDirectional.center,
                 height: double.infinity,
-                child: Text(
+                child: const Text(
                   'Successful Identification 👍',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14,
+                    fontSize: 13,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w600,
                     height: 0.10,
@@ -105,7 +105,7 @@ class StatisticsScreen extends StatelessWidget{
             ),
             const SizedBox(
               height: 16.0 ,),
-            Container(
+            SizedBox(
               width: 328,
               height: 360,
               child: Column(
@@ -127,10 +127,9 @@ class StatisticsScreen extends StatelessWidget{
                       children: [
                         Row(
                           children: [
-                            SizedBox(width: 16,),
-                            Positioned(
-                              left: 16,
-                              top: 20,
+                            const SizedBox(width: 16,),
+                            Positioned.fromRect(
+                              rect: const Rect.fromLTWH(16,20, 328,84),
                               child: Container(
                                 width: 32,
                                 height: 32,
@@ -146,7 +145,7 @@ class StatisticsScreen extends StatelessWidget{
                                 ),
                               ),
                             ),
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -205,7 +204,7 @@ class StatisticsScreen extends StatelessWidget{
                         Positioned(
                           left: 16,
                           top: 70,
-                          child: Container(
+                          child: SizedBox(
                             width: 294,
                             height: 3,
                             child: Stack(
@@ -256,10 +255,9 @@ class StatisticsScreen extends StatelessWidget{
                       children: [
                         Row(
                           children: [
-                            SizedBox(width: 16,),
-                            Positioned(
-                              left: 16,
-                              top: 20,
+                            const SizedBox(width: 16,),
+                            Positioned.fromRect(
+                              rect: const Rect.fromLTWH(16,20, 328,84),
                               child: Container(
                                 width: 32,
                                 height: 32,
@@ -275,7 +273,7 @@ class StatisticsScreen extends StatelessWidget{
                                 ),
                               ),
                             ),
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -334,7 +332,7 @@ class StatisticsScreen extends StatelessWidget{
                         Positioned(
                           left: 16,
                           top: 70,
-                          child: Container(
+                          child: SizedBox(
                             width: 294,
                             height: 3,
                             child: Stack(
@@ -385,7 +383,7 @@ class StatisticsScreen extends StatelessWidget{
                       children: [
                         Row(
                           children: [
-                            SizedBox(width: 16,),
+                            const SizedBox(width: 16,),
                             Positioned(
                               left: 16,
                               top: 20,
@@ -404,7 +402,7 @@ class StatisticsScreen extends StatelessWidget{
                                 ),
                               ),
                             ),
-                            SizedBox(width: 20,),
+                            const SizedBox(width: 20,),
                             const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -462,7 +460,7 @@ class StatisticsScreen extends StatelessWidget{
                         Positioned(
                           left: 16,
                           top: 70,
-                          child: Container(
+                          child: SizedBox(
                             width: 294,
                             height: 3,
                             child: Stack(
@@ -514,17 +512,17 @@ class StatisticsScreen extends StatelessWidget{
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'Add custom category ',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Color(0xFFA2A2B5),
-                            fontSize: 14,
+                            fontSize: 12,
                             fontWeight: FontWeight.w600,
                             height: 0.10,
                           ),
                         ),
-                        SizedBox(width: 9,),
+                        const SizedBox(width: 9,),
                         Image.asset('assets/images/Add.png'),
                       ],
                     ),

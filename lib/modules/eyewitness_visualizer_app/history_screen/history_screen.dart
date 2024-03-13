@@ -5,11 +5,24 @@ class HistoryScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('History Screen',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: const ShapeDecoration(
+                color: Color(0xFF353542),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(24),
+                    bottomRight: Radius.circular(24),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(child: Container())
+        ],
+      )
     );
   }
 
