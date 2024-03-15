@@ -55,7 +55,7 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                 child: BottomAppBar(
                   height: 80,
                   color: const Color(0xFF353542),
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
                   notchMargin: 7,
                   shape: const CircularNotchedRectangle(),
                   child: Row(

@@ -36,7 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   sqflite: ^2.3.0
-  intl: ^0.18.1
+  intl: ^0.18.0
   conditional_builder_null_safety: ^0.0.6
   bloc: ^8.1.2
   flutter_bloc: ^8.1.3
@@ -56,6 +56,9 @@ dependencies:
   syncfusion_flutter_charts: ^24.2.7
   percent_indicator: ^4.2.3
   circular_seek_bar: ^1.1.1
+  date_picker_timeline: ^1.2.5
+  flutter_svg: ^2.0.10+1
+  sleek_circular_slider: ^2.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -95,6 +98,8 @@ flutter:
     - assets/images/camera.png
     - assets/images/drawing.png
     - assets/images/Add.png
+    - assets/images/Ellipse2.svg
+    - assets/images/c.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

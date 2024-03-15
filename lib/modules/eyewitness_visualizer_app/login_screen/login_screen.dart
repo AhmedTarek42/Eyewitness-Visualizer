@@ -1,7 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_project/modules/eyewitness_visualizer_app/welcome_screen/welcome_screen.dart';
 import 'package:graduation_project/shared/components/buttons.dart';
 import 'package:graduation_project/shared/components/custom_textform_field.dart';
 import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
@@ -38,7 +37,7 @@ class _LoginScreen extends State<LoginScreen> {
           }
           if (state is LoginSuccessState) {
             CacheHelper.saveData(key: 'uId', value: state.uId).then((value) {
-              navigateAndFinish(context, EyewitnessVisualizerLayout());
+              navigateAndFinish(context, const EyewitnessVisualizerLayout());
             });
           }
         },
