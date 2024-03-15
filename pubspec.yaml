@@ -100,6 +100,14 @@ flutter:
     - assets/images/Add.png
     - assets/images/Ellipse2.svg
     - assets/images/c.png
+    - assets/images/Avatar.png
+    - assets/images/FaceID.png
+    - assets/images/iCloud.png
+    - assets/images/Sorting.png
+    - assets/images/Chart.png
+    - assets/images/PhoneCall.png
+    - assets/images/AppIcon.png
+    - assets/images/LightTheme.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
