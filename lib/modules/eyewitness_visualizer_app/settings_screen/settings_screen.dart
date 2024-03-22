@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends StatelessWidget{
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,7 @@ class SettingsScreen extends StatelessWidget{
           child: Column(
             children: [
               const SizedBox(
-                height:  20,
+                height: 20,
               ),
               Container(
                 width: 72,
@@ -52,17 +54,17 @@ class SettingsScreen extends StatelessWidget{
                       width: 72,
                       height: 72,
                       decoration: const BoxDecoration(
-                        image:  DecorationImage(
+                        image: DecorationImage(
                           image: AssetImage('assets/images/Avatar.png'),
                           fit: BoxFit.fill,
                         ),
-                        ),
                       ),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(
-                height:8,
+                height: 8,
               ),
               const Text('John Doe',
                   style: TextStyle(
@@ -70,7 +72,7 @@ class SettingsScreen extends StatelessWidget{
                       fontWeight: FontWeight.bold,
                       fontSize: 20)),
               const SizedBox(
-                height:6,
+                height: 6,
               ),
               const Text(
                 'j.doe@gmail.com',
@@ -87,11 +89,11 @@ class SettingsScreen extends StatelessWidget{
                 height: 60,
               ),
               const SizedBox(
-                height:20,
+                height: 20,
               ),
-               const Padding(
-                 padding: EdgeInsets.only(left: 33, bottom: 15),
-                 child: Align(
+              const Padding(
+                padding: EdgeInsets.only(left: 33, bottom: 15),
+                child: Align(
                   alignment: Alignment.topLeft,
                   child: Text(
                     'General',
@@ -102,12 +104,13 @@ class SettingsScreen extends StatelessWidget{
                       height: 0.10,
                     ),
                   ),
-                             ),
-               ),
+                ),
+              ),
               Container(
                 width: 328,
                 height: 112,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                 decoration: ShapeDecoration(
                   color: const Color(0x334E4E61),
                   shape: RoundedRectangleBorder(
@@ -120,12 +123,16 @@ class SettingsScreen extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 5,),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Row(
                       children: [
                         Image.asset('assets/images/FaceID.png'),
-                        SizedBox(width: 20,),
-                        Text(
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        const Text(
                           'Profile picture',
                           style: TextStyle(
                             color: Colors.white,
@@ -134,8 +141,10 @@ class SettingsScreen extends StatelessWidget{
                             height: 0.10,
                           ),
                         ),
-                        SizedBox(width: 109,),
-                        Text(
+                        const SizedBox(
+                          width: 109,
+                        ),
+                        const Text(
                           'Edit',
                           textAlign: TextAlign.right,
                           style: TextStyle(
@@ -146,19 +155,25 @@ class SettingsScreen extends StatelessWidget{
                             letterSpacing: 0.20,
                           ),
                         ),
-                        SizedBox(width: 8,),
-                        Icon(
-                            Icons.arrow_forward_ios,
-                            size: 12,
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 12,
                           color: Color(0xFFA2A2B5),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28,),
+                    const SizedBox(
+                      height: 28,
+                    ),
                     Row(
                       children: [
                         Image.asset('assets/images/iCloud.png'),
-                        const SizedBox(width: 20,),
+                        const SizedBox(
+                          width: 20,
+                        ),
                         const Text(
                           'Email',
                           style: TextStyle(
@@ -168,7 +183,9 @@ class SettingsScreen extends StatelessWidget{
                             height: 0.10,
                           ),
                         ),
-                        const SizedBox(width: 167,),
+                        const SizedBox(
+                          width: 167,
+                        ),
                         const Text(
                           'Edit',
                           textAlign: TextAlign.right,
@@ -180,7 +197,9 @@ class SettingsScreen extends StatelessWidget{
                             letterSpacing: 0.20,
                           ),
                         ),
-                        const SizedBox(width: 8,),
+                        const SizedBox(
+                          width: 8,
+                        ),
                         const Icon(
                           Icons.arrow_forward_ios,
                           size: 12,
@@ -192,7 +211,7 @@ class SettingsScreen extends StatelessWidget{
                 ),
               ),
               const SizedBox(
-                height:24,
+                height: 24,
               ),
               const Padding(
                 padding: EdgeInsets.only(left: 33, bottom: 15),
@@ -212,7 +231,8 @@ class SettingsScreen extends StatelessWidget{
               Container(
                 width: 328,
                 height: 160,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                 decoration: ShapeDecoration(
                   color: const Color(0x334E4E61),
                   shape: RoundedRectangleBorder(
@@ -225,12 +245,16 @@ class SettingsScreen extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 5,),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Row(
                       children: [
                         Image.asset('assets/images/Sorting.png'),
-                        SizedBox(width: 20,),
-                        Text(
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        const Text(
                           'First Name',
                           style: TextStyle(
                             color: Colors.white,
@@ -239,8 +263,10 @@ class SettingsScreen extends StatelessWidget{
                             height: 0.10,
                           ),
                         ),
-                        SizedBox(width: 132,),
-                        Text(
+                        const SizedBox(
+                          width: 132,
+                        ),
+                        const Text(
                           'Edit',
                           textAlign: TextAlign.right,
                           style: TextStyle(
@@ -251,19 +277,25 @@ class SettingsScreen extends StatelessWidget{
                             letterSpacing: 0.20,
                           ),
                         ),
-                        SizedBox(width: 8,),
-                        Icon(
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Icon(
                           Icons.arrow_forward_ios,
                           size: 12,
                           color: Color(0xFFA2A2B5),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28,),
+                    const SizedBox(
+                      height: 28,
+                    ),
                     Row(
                       children: [
                         Image.asset('assets/images/Chart.png'),
-                        const SizedBox(width: 20,),
+                        const SizedBox(
+                          width: 20,
+                        ),
                         const Text(
                           'Last Name',
                           style: TextStyle(
@@ -273,7 +305,9 @@ class SettingsScreen extends StatelessWidget{
                             height: 0.10,
                           ),
                         ),
-                        const SizedBox(width: 134,),
+                        const SizedBox(
+                          width: 134,
+                        ),
                         const Text(
                           'Edit',
                           textAlign: TextAlign.right,
@@ -285,7 +319,9 @@ class SettingsScreen extends StatelessWidget{
                             letterSpacing: 0.20,
                           ),
                         ),
-                        const SizedBox(width: 8,),
+                        const SizedBox(
+                          width: 8,
+                        ),
                         const Icon(
                           Icons.arrow_forward_ios,
                           size: 12,
@@ -293,11 +329,15 @@ class SettingsScreen extends StatelessWidget{
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28,),
+                    const SizedBox(
+                      height: 28,
+                    ),
                     Row(
                       children: [
                         Image.asset('assets/images/PhoneCall.png'),
-                        const SizedBox(width: 20,),
+                        const SizedBox(
+                          width: 20,
+                        ),
                         const Text(
                           'Phone',
                           style: TextStyle(
@@ -307,7 +347,9 @@ class SettingsScreen extends StatelessWidget{
                             height: 0.10,
                           ),
                         ),
-                        const SizedBox(width: 162,),
+                        const SizedBox(
+                          width: 162,
+                        ),
                         const Text(
                           'Edit',
                           textAlign: TextAlign.right,
@@ -319,7 +361,9 @@ class SettingsScreen extends StatelessWidget{
                             letterSpacing: 0.20,
                           ),
                         ),
-                        const SizedBox(width: 8,),
+                        const SizedBox(
+                          width: 8,
+                        ),
                         const Icon(
                           Icons.arrow_forward_ios,
                           size: 12,
@@ -331,7 +375,7 @@ class SettingsScreen extends StatelessWidget{
                 ),
               ),
               const SizedBox(
-                height:20,
+                height: 20,
               ),
               const Padding(
                 padding: EdgeInsets.only(left: 33, bottom: 15),
@@ -351,7 +395,8 @@ class SettingsScreen extends StatelessWidget{
               Container(
                 width: 328,
                 height: 112,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                 decoration: ShapeDecoration(
                   color: const Color(0x334E4E61),
                   shape: RoundedRectangleBorder(
@@ -364,12 +409,16 @@ class SettingsScreen extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 5,),
+                    const SizedBox(
+                      height: 5,
+                    ),
                     Row(
                       children: [
                         Image.asset('assets/images/AppIcon.png'),
-                        SizedBox(width: 20,),
-                        Text(
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        const Text(
                           'Password',
                           style: TextStyle(
                             color: Colors.white,
@@ -378,8 +427,10 @@ class SettingsScreen extends StatelessWidget{
                             height: 0.10,
                           ),
                         ),
-                        SizedBox(width: 137,),
-                        Text(
+                        const SizedBox(
+                          width: 137,
+                        ),
+                        const Text(
                           'Edit',
                           textAlign: TextAlign.right,
                           style: TextStyle(
@@ -390,19 +441,25 @@ class SettingsScreen extends StatelessWidget{
                             letterSpacing: 0.20,
                           ),
                         ),
-                        SizedBox(width: 8,),
-                        Icon(
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Icon(
                           Icons.arrow_forward_ios,
                           size: 12,
                           color: Color(0xFFA2A2B5),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 28,),
+                    const SizedBox(
+                      height: 28,
+                    ),
                     Row(
                       children: [
                         Image.asset('assets/images/LightTheme.png'),
-                        const SizedBox(width: 20,),
+                        const SizedBox(
+                          width: 20,
+                        ),
                         const Text(
                           'Delete your account',
                           style: TextStyle(
@@ -412,7 +469,9 @@ class SettingsScreen extends StatelessWidget{
                             height: 0.10,
                           ),
                         ),
-                        const SizedBox(width: 25,),
+                        const SizedBox(
+                          width: 25,
+                        ),
                         const Text(
                           'Permanently',
                           textAlign: TextAlign.right,
@@ -424,7 +483,9 @@ class SettingsScreen extends StatelessWidget{
                             letterSpacing: 0.20,
                           ),
                         ),
-                        const SizedBox(width: 8,),
+                        const SizedBox(
+                          width: 8,
+                        ),
                         const Icon(
                           Icons.arrow_forward_ios,
                           size: 12,

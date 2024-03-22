@@ -108,6 +108,7 @@ flutter:
     - assets/images/PhoneCall.png
     - assets/images/AppIcon.png
     - assets/images/LightTheme.png
+    - assets/images/orange_dot.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
+import '../../../shared/styles/colors.dart';
+import 'days_picker.dart';
 import 'months.dart';
 
 class HistoryScreen extends StatefulWidget{
@@ -10,13 +13,44 @@ class HistoryScreen extends StatefulWidget{
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
+  DateTime selectedDate = DateTime.now(); // Default selected date is the current date
+  List<String> months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
+  int selectedMonthIndex = DateTime.now().month - 1;
+  String selectedMonth = DateFormat('MMMM').format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
+        appBar: AppBar(
+          backgroundColor: const Color(0xFF353542),
+          elevation: 0,
+          title: const Text(
+            'History',
+            style: TextStyle(
+              color: greyText,
+              fontSize: 18,
+            ),
+          ),
+          centerTitle: true,
+        ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.45,
               width: double.infinity,
               decoration: const ShapeDecoration(
                 color: Color(0xFF353542),
@@ -28,88 +62,119 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(25.0),
+                padding: const EdgeInsets.all(14.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Center(
-                      child: Text('History',
-                        style: TextStyle(
-                          color: Color(0xFFA2A2B5),
-                          fontSize: 18
-
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 20,),
-                    const Text(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
                         'Current\nMonth',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 44,
+                            color: Colors.white),
                       ),
-                      textAlign: TextAlign.start,
-                    ),
-                    const SizedBox(height: 10,),
-                    const Row(
-                      children: [
-                        Text(
-                          '3 images for today',
-                          style: TextStyle(
-                              color: Color(0xFFA2A2B5),
-                              fontSize: 18
-
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            '3 images for today',
+                            style: TextStyle(fontSize: 15, color: greyText),
                           ),
-
-                        ),
-                        Spacer(),
-                        MonthsDropDownButton(),
-                      ],
-                    ),
-                    const SizedBox(height: 15,),
-                    /*Expanded(
-                      child: DatePicker(
-                        DateTime.now(),
-                        initialSelectedDate: DateTime.now(),
-                        selectionColor: Colors.black,
-                        selectedTextColor: Colors.white,
-                        onDateChange: (date) {
-                          // New date selected
-                          setState(() {
-                          });
-                        },
-                      ),
-                    ),*/
-                    Expanded(
-                      child: Container(
-                        width: 58,
-                        height: 113,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
-                          color: const Color(0xFF4E4E61)
-                        ),
-                        child: const Column(
-                          children: [
-                            Text('09',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18
+                          Container(
+                            width: 100,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: greyContainer,
+                              borderRadius: BorderRadius.circular(16),
                             ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                DropdownButton<String>(
+                                  underline: Container(),
+                                  icon: const Icon(Icons.keyboard_arrow_down_sharp),
+                                  borderRadius: BorderRadius.circular(10),
+                                  dropdownColor: myBlack,
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                  value: selectedMonth,
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      selectedMonth = newValue!;
+                                      selectedMonthIndex =
+                                          months.indexOf(selectedMonth);
+                                    });
+                                  },
+                                  items: months.map<DropdownMenuItem<String>>(
+                                          (String value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      }).toList(),
+                                ),
+                              ],
                             ),
-                            Text('Tu'),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    )
-                  ],
-                ),
+                      DaysPicker(
+                        selectedDate: selectedDate,
+                        selectedMonthIndex: selectedMonthIndex,
+                      ),
+                    ]),
               ),
             ),
-          ),
-          Expanded(child: Container())
-        ],
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        DateFormat('MMMM').format(DateTime.now()),
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        DateFormat(
+                          'dd.MM.20yy',
+                        ).format(DateTime.now()),
+                        style: const TextStyle(fontSize: 12, color: greyText),
+                      ),
+                    ],
+                  ),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        '2',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        '     Successful\nIdentification(s)',
+                        style: TextStyle(fontSize: 12, color: greyText),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       )
     );
   }
