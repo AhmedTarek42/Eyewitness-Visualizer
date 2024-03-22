@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
-          height: screenHeight + 200,
+          height: screenHeight + screenHeight * 0.25,
           child: Column(
             children: [
               // Chart Container
