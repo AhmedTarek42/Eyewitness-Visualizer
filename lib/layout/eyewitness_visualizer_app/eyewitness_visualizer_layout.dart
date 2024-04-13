@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../modules/eyewitness_visualizer_app/cubit/cubit.dart';
 import '../../modules/eyewitness_visualizer_app/cubit/states.dart';
 import '../../modules/eyewitness_visualizer_app/search_screen/search_screen.dart';
+import '../../shared/components/icon_bottom_bar.dart';
 import '../../shared/components/navigators.dart';
 
 
@@ -62,43 +63,36 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                  IconButton(
-                  icon: const Icon(
-                    Icons.home_outlined,
-                    color: Color(0xFF4E4E61) ,
-                    size: 30.0,
-                  ),
-                  onPressed: () {
-                    cubit.changeBottom(0);
-                  },),
-                  IconButton(
-                  icon: const Icon(
-                    Icons.app_registration_rounded,
-                    color: Color(0xFF4E4E61),
-                    size: 30.0,
-                  ),
-                  onPressed: () {
-                    cubit.changeBottom(1);
-                  },),
+                      IconBottomBar(
+                        icon: Icons.home_outlined,
+                        selected: cubit.currentIndex==0,
+                        onPressed: () {
+                        cubit.changeBottom(0);
+                        cubit.bottomScreens;
+                      },),
+                      IconBottomBar(
+                        icon: Icons.app_registration_rounded,
+                        selected: cubit.currentIndex==1,
+                        onPressed: () {
+                          cubit.changeBottom(1);
+                          cubit.bottomScreens;
+                        },),
+
                   const SizedBox(width: 20,),
-                  IconButton(
-                  icon: const Icon(
-                    Icons.history,
-                    color: Color(0xFF4E4E61),
-                    size: 30.0,
-                  ),
-                  onPressed: () {
-                    cubit.changeBottom(2);
-                  },),
-                  IconButton(
-                  icon: const Icon(
-                    Icons.settings_outlined,
-                    color: Color(0xFF4E4E61),
-                    size: 30.0,
-                  ),
-                  onPressed: () {
-                    cubit.changeBottom(3);
-                  },),
+                      IconBottomBar(
+                        icon: Icons.history,
+                        selected: cubit.currentIndex==2,
+                        onPressed: () {
+                          cubit.changeBottom(2);
+                          cubit.bottomScreens;
+                        },),
+                      IconBottomBar(
+                        icon: Icons.settings_outlined,
+                        selected: cubit.currentIndex==3,
+                        onPressed: () {
+                          cubit.changeBottom(3);
+                          cubit.bottomScreens;
+                        },),
                     ]
                 ),
                 ),

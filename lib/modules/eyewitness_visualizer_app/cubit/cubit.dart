@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/cubit/states.dart';
 
@@ -14,6 +15,7 @@ class EyewitnessVisualizerCubit extends Cubit<EyewitnessVisualizerStates>{
   static EyewitnessVisualizerCubit get(context) => BlocProvider.of(context);
 
   int currentIndex = 0;
+  Color buttonColor=Colors.white;
 
   List<Widget> bottomScreens = [
     const HomeScreen(),
