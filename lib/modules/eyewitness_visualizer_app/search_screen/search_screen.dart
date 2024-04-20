@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/similarities_screen/similarities_screen.dart';
 
+import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
 import '../../../shared/components/buttons.dart';
 import '../../../shared/components/divider.dart';
 import '../../../shared/components/navigators.dart';
@@ -45,7 +46,7 @@ class SearchScreen extends StatelessWidget{
                     child: Row(
                       children: [
                         IconButton(
-                            onPressed: ()=>navigateTo(context, HomeScreen()),
+                            onPressed: ()=>navigateTo(context, EyewitnessVisualizerLayout()),
                             icon: const Icon(
                               Icons.keyboard_arrow_down_rounded,
                               size:40,

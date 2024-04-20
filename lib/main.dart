@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF1C1C23),),
-            home: WelcomeScreen(),
+            home: EyewitnessVisualizerLayout(),
           );
         },
       ),
