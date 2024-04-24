@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
 import 'package:graduation_project/shared/components/buttons.dart';
 import '../../../shared/components/navigators.dart';
 import '../../../shared/components/sign_facebook.dart';
+import '../../../shared/components/sign_google.dart';
 import '../second_register_screen/second_register_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -19,7 +21,10 @@ class RegisterScreen extends StatelessWidget {
             ),
             PrimaryButton(
               buttonTitle: 'Sign up with Google',
-              onPressed: () {},
+              onPressed: () async {
+                await signInWithGoogle().then((value) =>
+                    navigateAndFinish(context, EyewitnessVisualizerLayout()));
+              },
               background: const Color(0xFFFFFFFF),
               borderSideOp: 0.5,
               boxShadowColor: 0x3FFFFFFF,

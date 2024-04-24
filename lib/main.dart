@@ -11,6 +11,7 @@ import 'firebase_options.dart';
 import 'layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
 import 'modules/eyewitness_visualizer_app/cubit/cubit.dart';
 import 'modules/eyewitness_visualizer_app/cubit/states.dart';
+import 'modules/eyewitness_visualizer_app/register_screen/register_screen.dart';
 import 'modules/eyewitness_visualizer_app/search_screen/search_screen.dart';
 import 'modules/eyewitness_visualizer_app/settings_screen/settings_screen.dart';
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(scaffoldBackgroundColor: const Color(0xFF1C1C23),),
-            home: EyewitnessVisualizerLayout(),
+            home: RegisterScreen(),
           );
         },
       ),

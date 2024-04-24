@@ -60,6 +60,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   sleek_circular_slider: ^2.0.1
   dash: ^1.0.5
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -96,6 +97,7 @@ flutter:
     - assets/images/pen 1.png
     - assets/images/Upload.png
     - assets/images/upload2.png
+    - assets/images/uploadpink.png
     - assets/images/camera.png
     - assets/images/drawing.png
     - assets/images/Add.png
@@ -111,6 +113,8 @@ flutter:
     - assets/images/LightTheme.png
     - assets/images/orange_dot.png
     - assets/images/base.png
+    - assets/images/Ellipse9.png
+    - assets/images/faceRecognition.png
     - assets/images/shika.jpg
 
   # To add assets to your application, add an assets section, like this:
