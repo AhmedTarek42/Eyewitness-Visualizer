@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/modules/eyewitness_visualizer_app/login_screen/forgot_password_screen.dart';
 import 'package:graduation_project/shared/components/buttons.dart';
 import 'package:graduation_project/shared/components/custom_textform_field.dart';
 import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
@@ -138,7 +139,9 @@ class _LoginScreen extends State<LoginScreen> {
                               width: 50.0,
                             ),
                             CustomTextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                navigateTo(context, ForgotPasswordScreen());
+                              },
                               text: 'Forgot password?',
                               textColor: const Color(0xFF666680),
                             ), // forgot password?
