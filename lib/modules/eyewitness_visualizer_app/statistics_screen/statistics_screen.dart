@@ -128,7 +128,7 @@ class StatisticsScreen extends StatelessWidget{
                             children: [
                               Row(
                                 children: [
-                                  SizedBox(width: screenWidth * 0.01,),
+                                  SizedBox(width: screenWidth * 0.04,),
                                   Positioned.fromRect(
                                     rect: const Rect.fromLTWH(16,20, 328,84),
                                     child: Container(
@@ -146,7 +146,7 @@ class StatisticsScreen extends StatelessWidget{
                                       ),
                                     ),
                                   ),
-                                  SizedBox(width: screenWidth * 0.01,),
+                                  SizedBox(width: screenWidth * 0.04,),
                                   const Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -256,7 +256,7 @@ class StatisticsScreen extends StatelessWidget{
                             children: [
                               Row(
                                 children: [
-                                  const SizedBox(width: 16,),
+                                  SizedBox(width: screenWidth * 0.04,),
                                   Positioned.fromRect(
                                     rect: const Rect.fromLTWH(16,20, 328,84),
                                     child: Container(
@@ -371,8 +371,8 @@ class StatisticsScreen extends StatelessWidget{
                         ),
                         const SizedBox(height: 8),
                         Container(
-                          width: 328,
-                          height: 84,
+                          width: screenWidth * 0.85,
+                          height: screenHeight * 0.1,
                           decoration: ShapeDecoration(
                             color: const Color(0x334E4E61),
                             shape: RoundedRectangleBorder(
@@ -384,7 +384,7 @@ class StatisticsScreen extends StatelessWidget{
                             children: [
                               Row(
                                 children: [
-                                  const SizedBox(width: 16,),
+                                  SizedBox(width: screenWidth * 0.04,),
                                   Positioned(
                                     left: 16,
                                     top: 20,

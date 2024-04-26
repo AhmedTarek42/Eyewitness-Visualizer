@@ -38,8 +38,8 @@ class RegisterScreen extends StatelessWidget {
             ),
             PrimaryButton(
               buttonTitle: 'Sign up with Facebook',
-              onPressed: () {
-                signInWithFacebook();
+              onPressed: () async {
+               await signInWithFacebook();
               },
               background: const Color(0xFF1771E6),
               borderSideOp: 0.30000001192092896,

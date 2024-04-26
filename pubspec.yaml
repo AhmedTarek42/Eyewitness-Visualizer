@@ -51,7 +51,7 @@ dependencies:
   firebase_auth: ^4.17.4
   cloud_firestore: ^4.15.4
   google_sign_in: ^6.2.1
-  flutter_facebook_auth: ^6.0.4
+  flutter_facebook_auth: ^6.2.0
   fl_chart: ^0.66.2
   syncfusion_flutter_charts: ^24.2.7
   percent_indicator: ^4.2.3
@@ -115,6 +115,7 @@ flutter:
     - assets/images/base.png
     - assets/images/Ellipse9.png
     - assets/images/faceRecognition.png
+    - assets/images/Group.png
     - assets/images/shika.jpg
 
   # To add assets to your application, add an assets section, like this:

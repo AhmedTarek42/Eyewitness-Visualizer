@@ -172,10 +172,101 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   ),
                 ],
               ),
-            )
-          ],
-        ),
+            ),
+            const SizedBox(height:14 ,),
+            historyData('Peter Smith',29,'17:32',Colors.cyan,90),
+            const SizedBox(height:6 ,),
+            historyData('John Boe',36,'14:18',Colors.cyanAccent,107),
+            const SizedBox(height:6 ,),
+            historyData('James Quick',31,'05:42',Colors.deepPurple,85)
+            ]
+        )
       )
     );
   }
 }
+
+Widget historyData(String name,int age,String time,Color color,double sizedBox)=>Container(
+  width: 328,
+  height: 84,
+  decoration: ShapeDecoration(
+    shape: RoundedRectangleBorder(
+      side: const BorderSide(width: 1, color: Color(0xFF4E4E61)),
+      borderRadius: BorderRadius.circular(16),
+    ),
+  ),
+  child: Stack(
+    children: [
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: Row(
+          children: [
+            Image(
+                image: AssetImage('assets/images/Group.png')),
+            SizedBox(
+              width: 46,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFA2A2B5),
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 0.10,
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Text(
+                  '${age}yr',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFA2A2B5),
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 0.10,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: sizedBox,
+               ),
+            Positioned(
+              left: 0,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    time,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFFA2A2B5),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      height: 2,
+                    ),
+                  ),
+                  Container(
+                    width: 6.0, // Set width
+                    height: 6.0, // Set height
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: color,
+                    ),
+                  )
+                ],
+              ),
+            ),
+
+          ],
+        ),
+      )
+
+    ],
+  ),
+);
