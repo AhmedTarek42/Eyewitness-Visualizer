@@ -174,11 +174,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
               ),
             ),
             const SizedBox(height:14 ,),
-            historyData('Peter Smith',29,'17:32',Colors.cyan,90),
+            historyData('Peter Smith',29,'17:32',Colors.cyan,80),
             const SizedBox(height:6 ,),
-            historyData('John Boe',36,'14:18',Colors.cyanAccent,107),
+            historyData('John Boe',36,'14:18',Colors.cyanAccent,97),
             const SizedBox(height:6 ,),
-            historyData('James Quick',31,'05:42',Colors.deepPurple,85)
+            historyData('James Quick',31,'05:42',Colors.deepPurple,75)
             ]
         )
       )

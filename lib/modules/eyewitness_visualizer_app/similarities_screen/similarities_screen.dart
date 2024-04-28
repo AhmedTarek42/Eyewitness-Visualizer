@@ -88,11 +88,6 @@ class SimilaritiesScreen extends StatelessWidget{
             ),
           ),
           SizedBox(height: 105,),
-          SecondaryButton(
-            buttonTitle: 'Back',
-            onPressed: () =>navigateTo(context, SearchScreen()),
-            width: 288,
-          ),
         ],
       ),
     );

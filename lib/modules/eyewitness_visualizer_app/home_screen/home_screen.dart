@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/modules/eyewitness_visualizer_app/home_screen/get_image.dart';
 import 'chart.dart';
+import 'mapping.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -64,40 +66,46 @@ class HomeScreen extends StatelessWidget {
                         ),
                         // Upload Container
                         Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(16),
-                            height: screenHeight * 0.2,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: const Color(0xFF4E4E61).withOpacity(0.2),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Image.asset(
-                                    'assets/images/Upload.png',
-                                    height: 57,
-                                    width: 64,
-                                  ),
-                                  const SizedBox(
-                                    height: 35,
-                                  ),
-                                  const Text(
-                                    'Upload Image',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w700,
-                                      height: 0.08,
+                          child: GestureDetector(
+                            onTap: () async {
+                              await compareImages(context, sketchToDigitalMap);
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.all(16),
+                              height: screenHeight * 0.2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: const Color(0xFF4E4E61).withOpacity(0.2),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/Upload.png',
+                                      height: 57,
+                                      width: 64,
                                     ),
-                                  )
-                                ],
+                                    const SizedBox(
+                                      height: 35,
+                                    ),
+                                    const Text(
+                                      'Upload Image',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 17,
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w700,
+                                        height: 0.08,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
+
                         ),
                       ],
                     ),

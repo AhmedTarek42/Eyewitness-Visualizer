@@ -43,7 +43,7 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    onPressed: () { navigateTo(context, SearchScreen()); },
+                    onPressed: () {},
                     child: const Icon(
                       Icons.search,
                       color: Colors.white,

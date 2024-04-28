@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:graduation_project/modules/eyewitness_visualizer_app/home_screen/get_image.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/similarities_screen/similarities_screen.dart';
 
 import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
@@ -6,9 +9,24 @@ import '../../../shared/components/buttons.dart';
 import '../../../shared/components/divider.dart';
 import '../../../shared/components/navigators.dart';
 import '../home_screen/home_screen.dart';
+import '../home_screen/mapping.dart';
 
 class SearchScreen extends StatelessWidget{
-  const SearchScreen({super.key});
+  final Uint8List uploadedImageBytes;
+  final Uint8List matchedImageBytes;
+  final String uploadedSketchLabel;
+  final String matchedSketchLabel;
+  final String matchedSketchPath;
+  final double similarity;
+
+  const SearchScreen({
+    required this.uploadedImageBytes,
+    required this.matchedImageBytes,
+    required this.uploadedSketchLabel,
+    required this.matchedSketchLabel,
+    required this.matchedSketchPath,
+    required this.similarity,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +97,8 @@ class SearchScreen extends StatelessWidget{
                       width: 165,
                       height: 248,
                       decoration: ShapeDecoration(
-                        image: const DecorationImage(
-                          image: AssetImage('assets/images/shika.jpg'),
+                        image: DecorationImage(
+                          image: AssetImage(matchedSketchPath),
                           fit: BoxFit.fill,
                         ),
                         shape: RoundedRectangleBorder(
@@ -159,7 +177,7 @@ class SearchScreen extends StatelessWidget{
                               height: 2,
                             ),
                           ),
-                          SizedBox(width: 187),
+                          SizedBox(width: 178),
                           Text(
                             'xxxxxxx',
                             textAlign: TextAlign.left,
@@ -185,7 +203,7 @@ class SearchScreen extends StatelessWidget{
                               height: 2,
                             ),
                           ),
-                          SizedBox(width: 112),
+                          SizedBox(width: 99),
                           Text(
                             'Peter Smith',
                             style: TextStyle(
@@ -210,7 +228,7 @@ class SearchScreen extends StatelessWidget{
                               height: 2,
                             ),
                           ),
-                          SizedBox(width: 142),
+                          SizedBox(width: 130),
                           Text(
                             '14 Jan 17:32',
                             style: TextStyle(
@@ -235,7 +253,7 @@ class SearchScreen extends StatelessWidget{
                               height: 2,
                             ),
                           ),
-                          SizedBox(width: 105),
+                          SizedBox(width: 85),
                           Text(
                             '88.3%',
                             style: TextStyle(
@@ -248,7 +266,7 @@ class SearchScreen extends StatelessWidget{
                             ),
                           ),
                         ],),
-                          const SizedBox(height: 14.0,),
+                          const SizedBox(height: 2.0,),
                           Row(
                             children: [
                               const Text(
@@ -260,7 +278,7 @@ class SearchScreen extends StatelessWidget{
                                   height: 1.6,
                                 ),
                               ),
-                              const SizedBox(width: 96),
+                              const Spacer(),
                               Row(
                                 children: [
                                   const Text(
@@ -270,7 +288,7 @@ class SearchScreen extends StatelessWidget{
                                       fontSize: 12,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w500,
-                                      height: 1.6,
+                                      height: 1.5,
                                       letterSpacing: 0.20,
                                     ),
                                   ),
@@ -278,14 +296,14 @@ class SearchScreen extends StatelessWidget{
                                       onPressed: ()=>navigateTo(context, SimilaritiesScreen()),
                                       icon: const Icon(Icons.arrow_forward_ios_outlined,
                                         color: Colors.grey,
-                                      size: 15,)),
+                                      size: 12,)),
                                 ],
                               ),
                             ],),
                         ]
                       ),
                     ),
-                    const SizedBox(height: 80.0,),
+                    const SizedBox(height: 60.0,),
                     SecondaryButton(buttonTitle: 'Save', onPressed: () {  },width: 288,)
                   ],
                   ),
