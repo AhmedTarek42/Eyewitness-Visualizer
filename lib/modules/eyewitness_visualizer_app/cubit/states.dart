@@ -2,4 +2,27 @@ abstract class EyewitnessVisualizerStates {}
 
 class EyewitnessVisualizerInitialState extends EyewitnessVisualizerStates{}
 
+class EyewitnessVisualizerGetUserLoadingState extends EyewitnessVisualizerStates {}
+
+class EyewitnessVisualizerGetUserSuccessState extends EyewitnessVisualizerStates {}
+
+class EyewitnessVisualizerGetUserErrorState extends EyewitnessVisualizerStates
+{
+  final String error;
+
+  EyewitnessVisualizerGetUserErrorState(this.error);
+}
+
 class EyewitnessVisualizerChangeBottomNavState extends EyewitnessVisualizerStates{}
+
+class EyewitnessVisualizerProfileImagePickedSuccessState extends EyewitnessVisualizerStates{}
+
+class EyewitnessVisualizerProfileImagePickedErrorState extends EyewitnessVisualizerStates{}
+
+class EyewitnessVisualizerUploadProfileImageSuccessState extends EyewitnessVisualizerStates{}
+
+class EyewitnessVisualizerUploadProfileImageErrorState extends EyewitnessVisualizerStates{}
+
+class EyewitnessVisualizerUserUpdateLoadingState extends EyewitnessVisualizerStates{}
+
+class EyewitnessVisualizerUserUpdateErrorState extends EyewitnessVisualizerStates{}

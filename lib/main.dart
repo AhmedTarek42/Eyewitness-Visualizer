@@ -13,6 +13,7 @@ import 'layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
 import 'modules/eyewitness_visualizer_app/cubit/cubit.dart';
 import 'modules/eyewitness_visualizer_app/cubit/states.dart';
 import 'modules/eyewitness_visualizer_app/history_screen/history_screen.dart';
+import 'modules/eyewitness_visualizer_app/login_screen/cubit/cubit.dart';
 import 'modules/eyewitness_visualizer_app/login_screen/forgot_password_screen.dart';
 import 'modules/eyewitness_visualizer_app/register_screen/register_screen.dart';
 import 'modules/eyewitness_visualizer_app/search_screen/search_screen.dart';
@@ -36,8 +37,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context)=> EyewitnessVisualizerCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (BuildContext context) => LoginCubit()),
+        BlocProvider(create: (BuildContext context) => EyewitnessVisualizerCubit()..getUserData()),
+      ],
       child: BlocConsumer<EyewitnessVisualizerCubit,EyewitnessVisualizerStates>(
         listener: (context,  state) {},
         builder: (context, state) {

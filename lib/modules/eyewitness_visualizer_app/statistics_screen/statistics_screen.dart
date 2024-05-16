@@ -133,7 +133,7 @@ class StatisticsScreen extends StatelessWidget{
                                     rect: const Rect.fromLTWH(16,20, 328,84),
                                     child: Container(
                                       width: screenWidth * 0.1,
-                                      height: screenHeight * 0.04,
+                                      height: screenHeight * 0.05,
                                       clipBehavior: Clip.antiAlias,
                                       decoration: const BoxDecoration(),
                                       child: Column(
@@ -261,7 +261,7 @@ class StatisticsScreen extends StatelessWidget{
                                     rect: const Rect.fromLTWH(16,20, 328,84),
                                     child: Container(
                                       width: screenWidth * 0.1,
-                                      height: screenHeight * 0.04,
+                                      height: screenHeight * 0.05,
                                       clipBehavior: Clip.antiAlias,
                                       decoration: const BoxDecoration(),
                                       child: Column(

@@ -30,7 +30,7 @@ class RegisterCubit2 extends Cubit<RegisterStates2> {
     });
   }
 
-  void userCreate({
+  void userCreate ({
     required String name,
     required String email,
     required String phone,
@@ -41,6 +41,7 @@ class RegisterCubit2 extends Cubit<RegisterStates2> {
       email: email,
       phone: phone,
       uId: uId,
+      image: 'https://gdsit.cdn-immedia.net/2015/05/20Leo-Messi.jpg',
       isEmailVerified: false,
     );
     FirebaseFirestore.instance

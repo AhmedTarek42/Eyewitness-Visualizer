@@ -1,10 +1,12 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/modules/eyewitness_visualizer_app/cubit/cubit.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/login_screen/forgot_password_screen.dart';
 import 'package:graduation_project/shared/components/buttons.dart';
 import 'package:graduation_project/shared/components/custom_textform_field.dart';
 import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
+import '../../../shared/components/constants.dart';
 import '../../../shared/components/custom_text_button.dart';
 import '../../../shared/components/navigators.dart';
 import '../../../shared/components/toast.dart';
@@ -29,9 +31,7 @@ class _LoginScreen extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => LoginCubit(),
-      child: BlocConsumer<LoginCubit, LoginStates>(
+    return BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
           if (state is LoginErrorState) {
             showToast(text: state.error, state: ToastStates.error);
@@ -196,7 +196,6 @@ class _LoginScreen extends State<LoginScreen> {
             ),
           );
         },
-      ),
     );
   }
 }
