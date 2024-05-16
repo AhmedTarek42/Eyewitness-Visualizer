@@ -1,15 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:graduation_project/modules/eyewitness_visualizer_app/home_screen/get_image.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/similarities_screen/similarities_screen.dart';
 
 import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.dart';
 import '../../../shared/components/buttons.dart';
 import '../../../shared/components/divider.dart';
 import '../../../shared/components/navigators.dart';
-import '../home_screen/home_screen.dart';
-import '../home_screen/mapping.dart';
 
 class SearchScreen extends StatelessWidget{
   final Uint8List uploadedImageBytes;
@@ -26,7 +23,7 @@ class SearchScreen extends StatelessWidget{
     required this.matchedSketchLabel,
     required this.matchedSketchPath,
     required this.similarity,
-  });
+  }); //trying to make the parameters not required to call the class elsewhere
 
   @override
   Widget build(BuildContext context) {
