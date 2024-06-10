@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/shared/styles/icon_broken.dart';
 
 import '../../modules/eyewitness_visualizer_app/cubit/cubit.dart';
 import '../../modules/eyewitness_visualizer_app/cubit/states.dart';
@@ -45,7 +46,7 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: const Icon(
-                      Icons.search,
+                      IconBroken.Search,
                       color: Colors.white,
                     ),
 
@@ -64,14 +65,14 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       IconBottomBar(
-                        icon: Icons.home_outlined,
+                        icon: IconBroken.Home,
                         selected: cubit.currentIndex==0,
                         onPressed: () {
                         cubit.changeBottom(0);
                         cubit.bottomScreens;
                       },),
                       IconBottomBar(
-                        icon: Icons.app_registration_rounded,
+                        icon: IconBroken.Chart,
                         selected: cubit.currentIndex==1,
                         onPressed: () {
                           cubit.changeBottom(1);
@@ -80,14 +81,14 @@ class EyewitnessVisualizerLayout extends StatelessWidget {
 
                   const SizedBox(width: 20,),
                       IconBottomBar(
-                        icon: Icons.history,
+                        icon: IconBroken.Calendar,
                         selected: cubit.currentIndex==2,
                         onPressed: () {
                           cubit.changeBottom(2);
                           cubit.bottomScreens;
                         },),
                       IconBottomBar(
-                        icon: Icons.settings_outlined,
+                        icon: IconBroken.Setting,
                         selected: cubit.currentIndex==3,
                         onPressed: () {
                           cubit.changeBottom(3);
