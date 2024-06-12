@@ -4,15 +4,20 @@ import 'package:graduation_project/modules/eyewitness_visualizer_app/search_scre
 import 'package:graduation_project/shared/components/navigators.dart';
 
 import '../../../shared/components/buttons.dart';
+import '../home_screen/mapping.dart';
 
 class SimilaritiesScreen extends StatelessWidget{
+  final String outputImagePath;
+
+  const SimilaritiesScreen({Key? key, required this.outputImagePath}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final List<String> similarImages = digitalToSimilarMap[outputImagePath] ?? [];
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 45,),
-          Text(
+          const SizedBox(height: 45,),
+          const Text(
             'Similarities',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -23,74 +28,38 @@ class SimilaritiesScreen extends StatelessWidget{
               letterSpacing: 0.20,
             ),
           ),
-          SizedBox(height: 85,),
-          Container(
+          const SizedBox(height: 85,),
+          Expanded(
             child: GridView.count(
-              childAspectRatio:1.222,
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              childAspectRatio:1,
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
               children:
               List.generate(
-                6,(index)=>Column(
-                children: [
-                  Container(
-                    width: 152,
-                    height: 154,
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                    decoration: ShapeDecoration(
-                      color: Color(0x334E4E61),
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(width: 1, color: Color(0x26CFCFFC)),
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: double.infinity,
-                          height: 120,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 120,
-                                height: 120,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: ShapeDecoration(
-                                  color: Color(0xFFEEEEEE),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child:
-                                Stack(
-                                    children: [
-                                  Image(
-                                    image: AssetImage('assets/images/base.png'),
-                                  ),
-                                    ]),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-                          )
+                  similarImages.length
+                  ,(index)=>Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF334E4E61),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.asset(
+                    similarImages[index],
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
               ),
             ),
           ),
-          SizedBox(height: 105,),
+          SizedBox(height: 20),
         ],
       ),
     );
   }
-
 }

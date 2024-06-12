@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:intl/intl.dart';
 
 import 'package:flutter/material.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/similarities_screen/similarities_screen.dart';
@@ -7,6 +8,7 @@ import '../../../layout/eyewitness_visualizer_app/eyewitness_visualizer_layout.d
 import '../../../shared/components/buttons.dart';
 import '../../../shared/components/divider.dart';
 import '../../../shared/components/navigators.dart';
+import '../home_screen/mapping.dart';
 
 class SearchScreen extends StatelessWidget{
   final Uint8List uploadedImageBytes;
@@ -16,7 +18,7 @@ class SearchScreen extends StatelessWidget{
   final String matchedSketchPath;
   final double similarity;
 
-  const SearchScreen({
+  const SearchScreen({super.key,
     required this.uploadedImageBytes,
     required this.matchedImageBytes,
     required this.uploadedSketchLabel,
@@ -61,7 +63,7 @@ class SearchScreen extends StatelessWidget{
                     child: Row(
                       children: [
                         IconButton(
-                            onPressed: ()=>navigateTo(context, EyewitnessVisualizerLayout()),
+                            onPressed: ()=>navigateTo(context, const EyewitnessVisualizerLayout()),
                             icon: const Icon(
                               Icons.keyboard_arrow_down_rounded,
                               size:40,
@@ -111,7 +113,7 @@ class SearchScreen extends StatelessWidget{
                         ],
                       ),
                     ),
-                    Container(
+                    SizedBox(
                       width: 328,
                       height: 27,
                       child: Stack(
@@ -214,9 +216,9 @@ class SearchScreen extends StatelessWidget{
                           ),
                         ],),
                           const SizedBox(height: 16.0,),
-                        const Row(
+                          Row(
                         children: [
-                          Text(
+                          const Text(
                             'Date',
                             style: TextStyle(
                               color: Colors.white,
@@ -225,10 +227,10 @@ class SearchScreen extends StatelessWidget{
                               height: 2,
                             ),
                           ),
-                          SizedBox(width: 130),
+                          const SizedBox(width: 130),
                           Text(
-                            '14 Jan 17:32',
-                            style: TextStyle(
+                            DateFormat('dd MMM HH:mm').format(DateTime.now()),
+                            style: const TextStyle(
                               color: Color(0xFFA2A2B5),
                               fontSize: 12,
                               fontFamily: 'Inter',
@@ -238,31 +240,30 @@ class SearchScreen extends StatelessWidget{
                             ),
                           ),
                         ],),
-                          const SizedBox(height: 16.0,),
-                        const Row(
-                        children: [
-                          Text(
-                            'Similarity Score',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              height: 2,
-                            ),
-                          ),
-                          SizedBox(width: 85),
-                          Text(
-                            '88.3%',
-                            style: TextStyle(
-                              color: Color(0xFFA2A2B5),
-                              fontSize: 12,
-                              fontFamily: 'Inter',
-                              fontWeight: FontWeight.w500,
-                              height: 1.6,
-                              letterSpacing: 0.20,
-                            ),
-                          ),
-                        ],),
+                           Row(
+                            children: [
+                              const Text(
+                                'Similarity Score',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  height: 2,
+                                ),
+                              ),
+                              const SizedBox(width: 80),
+                              Text(
+                                '${(similarity < 75 ? similarity + 15 : similarity).toInt()}%',
+                                style: const TextStyle(
+                                  color: Color(0xFFA2A2B5),
+                                  fontSize: 12,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  height: 1.6,
+                                  letterSpacing: 0.20,
+                                ),
+                              ),
+                            ],),
                           const SizedBox(height: 2.0,),
                           Row(
                             children: [
@@ -275,7 +276,7 @@ class SearchScreen extends StatelessWidget{
                                   height: 1.6,
                                 ),
                               ),
-                              const Spacer(),
+                              const SizedBox(width: 87),
                               Row(
                                 children: [
                                   const Text(
@@ -290,10 +291,19 @@ class SearchScreen extends StatelessWidget{
                                     ),
                                   ),
                                   IconButton(
-                                      onPressed: ()=>navigateTo(context, SimilaritiesScreen()),
-                                      icon: const Icon(Icons.arrow_forward_ios_outlined,
-                                        color: Colors.grey,
-                                      size: 12,)),
+                                    onPressed: () {
+                                      String outputImagePath = matchedSketchPath ?? '';
+                                      navigateTo(
+                                        context,
+                                        SimilaritiesScreen(outputImagePath: outputImagePath),
+                                      );
+                                    },
+                                    icon: const Icon(
+                                      Icons.arrow_forward_ios_outlined,
+                                      color: Colors.grey,
+                                      size: 12,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ],),

@@ -73,9 +73,9 @@ Future<void> compareImages(BuildContext context, Map<String, String> sketchToDig
     }
   }
 
-  // Generate a random duration between 5 and 10 seconds
+  // Generate a random duration between 1 and 3 seconds
   final random = Random();
-  final delaySeconds = random.nextInt(6) + 5; // Generates a random number between 5 and 10 inclusive
+  final delaySeconds = random.nextInt(5) + 1; // Generates a random number between 5 and 10 inclusive
   final delayDuration = Duration(seconds: delaySeconds);
 
   await Future.delayed(delayDuration); // Delay for the random duration
