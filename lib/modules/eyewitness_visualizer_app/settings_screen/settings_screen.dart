@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/cubit/states.dart';
 import 'package:graduation_project/modules/eyewitness_visualizer_app/login_screen/cubit/states.dart';
+import 'package:graduation_project/modules/eyewitness_visualizer_app/settings_screen/edit_email_screen.dart';
+import 'package:graduation_project/modules/eyewitness_visualizer_app/settings_screen/edit_name_screen.dart';
+import 'package:graduation_project/modules/eyewitness_visualizer_app/settings_screen/edit_phone_screen.dart';
+import 'package:graduation_project/shared/components/navigators.dart';
 
 import '../../../shared/components/sign_google.dart';
 import '../cubit/cubit.dart';
+import 'edit_password_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -20,6 +25,7 @@ class SettingsScreen extends StatelessWidget {
       },
       builder: (context, state) {
         var userModel = EyewitnessVisualizerCubit.get(context).userModel;
+        var profileImage=EyewitnessVisualizerCubit.get(context).profileImage;
         var screenSize = MediaQuery.of(context).size;
         var isPortrait = screenSize.height > screenSize.width;
 
@@ -28,9 +34,7 @@ class SettingsScreen extends StatelessWidget {
             backgroundColor: const Color(0xFF1C1C23),
             elevation: 0,
             leading: IconButton(
-              onPressed: () {
-                signOut();
-              },
+              onPressed: (){},
               icon: const Icon(
                 Icons.arrow_back_ios_new,
                 color: Color(0xFFA2A2B5),
@@ -56,7 +60,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   CircleAvatar(
                     radius: 36,
-                    backgroundImage: NetworkImage('${userModel?.image}'),
+                    backgroundImage: profileImage==null ? NetworkImage('${userModel?.image}') : FileImage(profileImage) as ImageProvider,
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -80,15 +84,15 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 60),
                   buildSectionHeader('General'),
-                  buildSettingsCard(screenSize, isPortrait, 'Profile picture', 'Edit', 'assets/images/FaceID.png', () {}),
-                  buildSettingsCard(screenSize, isPortrait, 'Email', 'Edit', 'assets/images/iCloud.png', () {}),
+                  buildSettingsCard(screenSize, isPortrait, 'Profile picture', 'Edit', 'assets/images/FaceID.png', () {EyewitnessVisualizerCubit.get(context).getProfileImage().then((value) => EyewitnessVisualizerCubit.get(context).uploadProfileImage(name:userModel?.name,phone: userModel?.phone,email: userModel?.email ));}),
+                  buildSettingsCard(screenSize, isPortrait, 'Email', 'Edit', 'assets/images/iCloud.png', ()=>navigateTo(context, EditEmailScreen())),
                   const SizedBox(height: 24),
                   buildSectionHeader('Profile'),
-                  buildSettingsCard(screenSize, isPortrait, 'Full Name', 'Edit', 'assets/images/Sorting.png', () {}),
-                  buildSettingsCard(screenSize, isPortrait, 'Phone', 'Edit', 'assets/images/PhoneCall.png', () {}),
+                  buildSettingsCard(screenSize, isPortrait, 'Full Name', 'Edit', 'assets/images/Sorting.png', () =>navigateTo(context, EditNameScreen())),
+                  buildSettingsCard(screenSize, isPortrait, 'Phone', 'Edit', 'assets/images/PhoneCall.png', () =>navigateTo(context, EditPhoneScreen())),
                   const SizedBox(height: 20),
                   buildSectionHeader('Security'),
-                  buildSettingsCard(screenSize, isPortrait, 'Password', 'Edit', 'assets/images/AppIcon.png', () {}),
+                  buildSettingsCard(screenSize, isPortrait, 'Password', 'Edit', 'assets/images/AppIcon.png', () =>navigateTo(context, EditPasswordScreen())),
                   buildSettingsCard(screenSize, isPortrait, 'Delete your account', 'Permanently', 'assets/images/LightTheme.png', () {}),
                   const SizedBox(height: 60),
                 ],
@@ -155,6 +159,7 @@ class SettingsScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
+                SizedBox(width: 3,),
                 const Icon(
                   Icons.arrow_forward_ios,
                   size: 12,

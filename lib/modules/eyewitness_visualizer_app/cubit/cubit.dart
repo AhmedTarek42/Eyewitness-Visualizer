@@ -18,6 +18,7 @@ import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 
 
+
 class EyewitnessVisualizerCubit extends Cubit<EyewitnessVisualizerStates>{
   EyewitnessVisualizerCubit() : super(EyewitnessVisualizerInitialState());
 
@@ -73,15 +74,18 @@ class EyewitnessVisualizerCubit extends Cubit<EyewitnessVisualizerStates>{
   }
 
   void updateUser({
-    required String name,
-    required String phone,
-    String? image,
-  }) {
+        String? name,
+        String? phone,
+        String? email,
+        String? image,
+
+      })
+  {
     UserModel model = UserModel(
       name: name,
       phone: phone,
-      email: userModel!.email,
-      image: image ?? userModel!.image,
+      email: email,
+      image: image??userModel!.image,
       uId: userModel!.uId,
       isEmailVerified: false,
     );
@@ -97,11 +101,14 @@ class EyewitnessVisualizerCubit extends Cubit<EyewitnessVisualizerStates>{
     });
   }
 
+
+
+
   void uploadProfileImage({
-    required String name,
-    required String phone,
-    required String bio,
-  }) {
+    String? name,
+    String? phone,
+    String? email,
+}) {
     emit(EyewitnessVisualizerUserUpdateLoadingState());
 
     firebase_storage.FirebaseStorage.instance
@@ -110,11 +117,13 @@ class EyewitnessVisualizerCubit extends Cubit<EyewitnessVisualizerStates>{
         .putFile(profileImage!)
         .then((value) {
       value.ref.getDownloadURL().then((value) {
+        emit(EyewitnessVisualizerUploadProfileImageSuccessState());
         print(value);
         updateUser(
-          name: name,
-          phone: phone,
-          image: value,
+            name: name,
+            phone: phone,
+            email: email,
+            image: value
         );
       }).catchError((error) {
         emit(EyewitnessVisualizerUploadProfileImageErrorState());
